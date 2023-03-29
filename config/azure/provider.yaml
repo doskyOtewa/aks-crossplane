@@ -4,7 +4,7 @@ metadata:
   name: upbound-provider-azure
 spec:
   #gnoreCrossplaneConstraints: false
-  package: xpkg.upbound.io/upbound/provider-azure:v0.16.0
+  package: xpkg.upbound.io/upbound/provider-azure:v0.29.0
   packagePullPolicy: IfNotPresent
   revisionActivationPolicy: Automatic
   #revisionHistoryLimit: 1
