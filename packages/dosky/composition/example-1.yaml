@@ -1,0 +1,25 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: Composition
+metadata:
+  name: example-1
+  labels:
+    provider: azure
+spec:
+  compositeTypeRef:
+    apiVersion: tanuu.fi/v1alpha1
+    kind: XDosky
+  writeConnectionSecretsToNamespace: upbound-system
+  resources:
+    - name: ResourceGroup
+      base:
+        apiVersion: azure.upbound.io/v1beta1
+        kind: ResourceGroup
+        metadata:
+          annotations:
+            crossplane.io/external-name: xplane-rg-1
+          name: xplane-rg-example-1
+        spec:
+          forProvider:
+            location: "Sweden Central"
+            tags:
+              name: xplane-test

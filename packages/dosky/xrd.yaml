@@ -1,0 +1,40 @@
+apiVersion: apiextensions.crossplane.io/v1
+kind: CompositeResourceDefinition
+metadata:
+  name: xdosky.tanuu.fi
+spec:
+  group: tanuu.fi
+  names:
+    kind: XDosky
+    plural: xdosky
+  claimNames:
+    kind: Dosky
+    plural: dosky
+  defaultCompositionRef:
+    name: example-1
+  versions:
+    - name: v1alpha1
+      served: true
+      referenceable: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                environment:
+                  type: string
+                  oneOf:
+                    - pattern: "poc"
+                    - pattern: "staging"
+                    - pattern: "pre-prod"
+                    - pattern: "prod"
+                name:
+                  type: string
+                  default: ada
+                region:
+                  type: string
+                  default: "East US"
+              required:
+                - environment
