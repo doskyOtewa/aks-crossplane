@@ -1,0 +1,12 @@
+apiVersion: tanuu.fi/v1alpha1
+kind: Dosky
+metadata:
+  name: dosky
+  namespace: dosky
+spec:
+  environment: poc
+  name: kaius
+  region: Sweden Central 
+  # compositionSelector:
+  #   matchLabels:
+  #     provider: azure
